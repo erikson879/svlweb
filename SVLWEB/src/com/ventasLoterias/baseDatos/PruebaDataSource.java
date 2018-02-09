@@ -1,6 +1,6 @@
 package com.ventasLoterias.baseDatos;
 
-import java.sql.Connection;
+
 
 import javax.faces.bean.ManagedBean;
 import javax.naming.InitialContext;
@@ -13,18 +13,17 @@ import javax.sql.DataSource;
 @ManagedBean
 public class PruebaDataSource {
 	
-	private Connection  con;	
+	//private Connection  con;	
 	public String pruebaFuenteDatos() throws Throwable{
 		InitialContext cxt;
 		try {
 			cxt = new InitialContext ();
 			//return ("cxtnocontext");
 			System.out.println("Paso 1");
-			if (cxt == null){
+			/*if (cxt == null){
 				System.out.println("Paso 2");
-				return ("cxtnocontext");
-					
-			}
+				return ("cxtnocontext");					
+			}*/
 			DataSource ds = (DataSource) cxt.lookup( "java:/comp/env/jdbc/SVL" );
 			//con = ds.getConnection();
 			System.out.println("Paso 3");
@@ -37,8 +36,8 @@ public class PruebaDataSource {
 				System.out.println("Paso 4");
 				return("Conectionnotfound");
 			}*/
-			con = ds.getConnection();
-			con.close();
+			//con = ds.getConnection();
+			//con.close();
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
